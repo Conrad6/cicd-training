@@ -1,6 +1,23 @@
 // Import stylesheets
 import './style.css';
 
-// Write Javascript code!
-const appDiv = document.getElementById('app');
-appDiv.innerHTML = `<h1>JS Starter</h1>`;
+var canvas = null;
+var context = null;
+
+const onReady = () => {
+  initCanvas();
+};
+
+const initCanvas = () => {
+  canvas = document.querySelector('canvas');
+  context = canvas.getContext('2d');
+  window.addEventListener('resize', onWindowResize);
+  onWindowResize();
+};
+
+const onWindowResize = () => {
+  canvas.width = innerWidth;
+  canvas.height = innerHeight;
+};
+
+document.addEventListener('DOMContentLoaded', onReady);
